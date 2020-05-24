@@ -1,0 +1,18 @@
+from selenium import webdriver
+
+driver = webdriver.Chrome(r'H:\chromedriver.exe')
+driver.maximize_window()
+driver.get("https://www.saintalfred.com/collections/brands/products/raceway-snapback-cap-ss20")
+assert "RACEWAY SNAPBACK CAP SU20" in driver.title
+
+
+eleShowMsgBtn=driver.find_element_by_class_name('add-to-cart')
+eleShowMsgBtn.click()
+
+driver.get("https://www.saintalfred.com/cart")
+
+eleShowMsgBtn=driver.find_element_by_id('shipping-warning')
+eleShowMsgBtn.click()
+
+driver.get("https://www.saintalfred.com/checkout")
+#driver.close()
